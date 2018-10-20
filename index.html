@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!-- Datatable CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <!--Fliter Checkbox CSS-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Allergy Free
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Search</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Search For your Favourite Allergy Free Restaurant</h2>
+                        
+                       <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
+                       <!-- Search Bar-->
+                       <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <div id="imaginary_container"> 
+                                        <div class="input-group stylish-input-group">
+                                            <input type="text" id="searchTextField" class="form-control"  placeholder="Search" >
+                                            <span class="input-group-addon">
+                                                <button type="submit">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                </button>  
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h3>Select Your Alergies</h3>
+                                    
+                                    <div class="btn-group" data-toggle="buttons">
+                                        
+                                        <label class="btn btn-success active">
+                                            <input type="checkbox" autocomplete="off" id="nutsFree">Nuts
+                                            <span class="fa fa-check "></span>
+                                        </label>
+                            
+                                        <label class="btn btn-primary">
+                                            <input type="checkbox" autocomplete="off" id="diaryFree">Diary
+                                            <span class="fa fa-check"></span>
+                                        </label>			
+                                    
+                                        <label class="btn btn-info">
+                                            <input type="checkbox" autocomplete="off" id="glutenFree">Gluten
+                                            <span class="fa fa-check"></span>
+                                        </label>			
+                                    
+                                        <label class="btn btn-danger">
+                                            <input type="checkbox" autocomplete="off" id="soyFree" >Soy
+                                            <span class="fa fa-check"></span>
+                                        </label>			
+                            
+                                        <label class="btn btn-warning">
+                                            <input type="checkbox" autocomplete="off">Fri
+                                            <span class="fa fa-check"></span>
+                                        </label>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Filter Checkbox-->
+                       
+                        
+                            
+                     
+                            <!--Datatable-->
+                            
+                            
+                            <table id="dataTable" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Nuts Free</th>
+                                        <th>Diary Free</th>
+                                        <th>Gluten Free</th>
+                                        <th>Soy Free</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Nuts Free</th>
+                                    <th>Diary Free</th>
+                                    <th>Gluten Free</th>
+                                    <th>Soy Free</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- DataTable-->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    
+    <!-- Datatable Intialisation-->
+    <script>
+      $(document).ready(function() {
+    var table = $('#dataTable').DataTable( {
+        "ajax": "data/arrays.txt",
+        "dom": 'lrtip'
+        } );
+        $('#searchTextField').keyup(function(){
+        table.search($(this).val()).draw() ;
+        })
+        
+
+        $('#nutsFree').on('change', function() {
+        if ($(this).is(':checked')) {
+            $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {  
+                return data[2] == "Yes"
+            }
+            )
+        } else {
+            $.fn.dataTable.ext.search.pop()
+        }
+        table.draw()
+        })
+
+        $('#diaryFree').on('change', function() {
+        if ($(this).is(':checked')) {
+            $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {  
+                return data[3] == "Yes"
+            }
+            )
+        } else {
+            $.fn.dataTable.ext.search.pop()
+        }
+        table.draw()
+        })
+        $('#glutenFree').on('change', function() {
+        if ($(this).is(':checked')) {
+            $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {  
+                return data[4] == "Yes"
+            }
+            )
+        } else {
+            $.fn.dataTable.ext.search.pop()
+        }
+        table.draw()
+        })
+        $('#soyFree').on('change', function() {
+        if ($(this).is(':checked')) {
+            $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {  
+                return data[5] == "Yes"
+            }
+            )
+        } else {
+            $.fn.dataTable.ext.search.pop()
+        }
+        table.draw()
+        })
+
+        
+        });
+
+
+
+       
+    </script>
+   
+    
+         
+
+    
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
